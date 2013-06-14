@@ -10,5 +10,30 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
 
-# Customize to your needs...
+# Editor
+export EDITOR='subl -w'
 
+# Aliases
+alias zshconfig="e ~/.zshrc"
+alias git=hub
+
+# PATH
+export PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin
+
+# rbenv setup
+if which rbenv > /dev/null; then eval "$(rbenv init - zsh)"; fi
+
+# Jump
+source `jump-bin --zsh-integration`
+alias devdir="~/Development"
+
+alias reload!="source ~/.zshrc"
+
+### Added by the Heroku Toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"
+
+### Set the bundler editor
+export BUNDLER_EDITOR=mine
+
+# Always look in the local path first
+# PATH=./bin:$PATH
