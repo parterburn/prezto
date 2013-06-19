@@ -18,7 +18,7 @@ alias zshconfig="e ~/.zshrc"
 alias git=hub
 
 # PATH
-export PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin
+export PATH=./bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:$PATH
 
 # rbenv setup
 if which rbenv > /dev/null; then eval "$(rbenv init - zsh)"; fi
