@@ -16,6 +16,7 @@ export EDITOR='subl -w'
 # Aliases
 alias zshconfig="e ~/.zshrc"
 alias git=hub
+alias g=git
 
 # PATH
 export PATH=./bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:$PATH
