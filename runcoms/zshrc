@@ -17,7 +17,8 @@ export EDITOR='subl -w'
 alias zshconfig="e ~/.zshrc"
 alias git=hub
 alias g=git
-alias git-tower= gittower
+alias git-tower=gittower
+alias twr=gittower
 
 # PATH
 export PATH=./bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:$PATH
