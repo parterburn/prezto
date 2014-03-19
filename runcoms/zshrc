@@ -25,9 +25,6 @@ export PATH=./bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:$
 # rbenv setup
 if which rbenv > /dev/null; then eval "$(rbenv init - zsh)"; fi
 
-# Jump
-# source `jump-bin --zsh-integration`
-alias devdir="~/Development"
 # Auto Jump
 [[ -s `brew --prefix`/etc/autojump.sh ]] && . `brew --prefix`/etc/autojump.sh
 
