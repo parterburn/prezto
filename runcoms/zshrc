@@ -39,7 +39,7 @@ export PATH="/usr/local/heroku/bin:$PATH"
 export BUNDLER_EDITOR=mine
 
 ### PG App
-PATH="/Applications/Postgres93.app/Contents/MacOS/bin:$PATH"
+PATH="/Applications/Postgres.app/Contents/Versions/9.3/bin:$PATH"
 
 # Always look in the local path first
 export PATH=./bin:$PATH
