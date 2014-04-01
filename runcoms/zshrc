@@ -46,3 +46,6 @@ export PATH=./bin:$PATH
 
 # added by travis gem
 # source /Users/jwaldrip/.travis/travis.sh
+
+# Android SDK HOME
+export ANDROID_HOME=/usr/local/opt/android-sdk
