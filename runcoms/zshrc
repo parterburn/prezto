@@ -49,3 +49,6 @@ export PATH=./bin:$PATH
 
 # Android SDK HOME
 export ANDROID_HOME=/usr/local/opt/android-sdk
+
+# Set the default provider
+export VAGRANT_DEFAULT_PROVIDER=vmware_fusion
