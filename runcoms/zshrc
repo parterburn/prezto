@@ -52,3 +52,9 @@ export ANDROID_HOME=/usr/local/opt/android-sdk
 
 # Set the default provider
 export VAGRANT_DEFAULT_PROVIDER=vmware_fusion
+
+# Set the docker host
+export DOCKER_HOST=tcp://127.0.0.1:4243
+
+# The iTriage Gem Host
+ITRIAGE_GEM_HOST=https://developer:09763a8cd60c4621c633d6f7d275eadd74a7967343a780eddaf8897478452dbf@developers.itriagehealth.com/gems/
