@@ -11,7 +11,7 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
 fi
 
 # Customize to your needs...
-export EDITOR='subl -w'
+export EDITOR='atom -w'
 
 # Aliases
 alias zshconfig="e ~/.zshrc"
@@ -19,33 +19,26 @@ alias git=hub
 alias g=git
 alias git-tower=gittower
 alias twr=gittower
-
-# PATH
-export PATH=./bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:$PATH
-
-# rbenv setup
-export RBENV_ROOT=/usr/local/var/rbenv
-if which rbenv > /dev/null; then eval "$(rbenv init - zsh)"; fi
-
-# Auto Jump
-[[ -s `brew --prefix`/etc/autojump.sh ]] && . `brew --prefix`/etc/autojump.sh
-
 alias reload!="source ~/.zshrc"
 
-### Added by the Heroku Toolbelt
+## PATH ASSIGNMENTS
+
+# Add Homebrew PATH
+export PATH="/usr/local/bin:$PATH"
+
+# Add Current Directory Path
+export PATH="./bin:$PATH"
+
+# Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
 
-### Set the bundler editor
-export BUNDLER_EDITOR=mine
-
-### PG App
+# PG App
 PATH="/Applications/Postgres.app/Contents/Versions/9.3/bin:$PATH"
 
-# Always look in the local path first
-export PATH=./bin:$PATH
+### Exports
 
-# added by travis gem
-# source /Users/jwaldrip/.travis/travis.sh
+# Set the bundler editor
+export BUNDLER_EDITOR=mine
 
 # Android SDK HOME
 export ANDROID_HOME=/usr/local/opt/android-sdk
@@ -57,7 +50,24 @@ export VAGRANT_DEFAULT_PROVIDER=virtualbox
 export DOCKER_HOST=tcp://docker.vagrant.itri.ag:4243
 
 # The iTriage Gem Host
-ITRIAGE_GEM_HOST=https://developer:09763a8cd60c4621c633d6f7d275eadd74a7967343a780eddaf8897478452dbf@developers.itriagehealth.com/gems/
+export ITRIAGE_GEM_HOST=https://developer:09763a8cd60c4621c633d6f7d275eadd74a7967343a780eddaf8897478452dbf@developers.itriagehealth.com/gems/
+
+### RBENV SETUP
+if which rbenv > /dev/null
+  then
+  # export RBENV_ROOT=/usr/local/var/rbenv
+  eval "$(rbenv init -)"
+  else
+  echo "Warning, missing rbenv"
+fi
+
+### AUTOJUMP SETUP
+if which autojump > /dev/null
+    then
+    [[ -s `brew --prefix`/etc/autojump.sh ]] && . `brew --prefix`/etc/autojump.sh
+fi
+
+### Functions
 
 # A function to set the docker host
 function set-docker-host () {
