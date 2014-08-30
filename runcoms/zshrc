@@ -47,7 +47,17 @@ export ANDROID_HOME=/usr/local/opt/android-sdk
 export VAGRANT_DEFAULT_PROVIDER=virtualbox
 
 # Set the docker host
-export DOCKER_HOST=tcp://docker.vagrant.itri.ag:4243
+export DOCKER_HOST=tcp://docker.jasonwaldrip.com:4243
+
+# Set the Development PATH
+export DEVPATH=~/dev
+
+# Set the Go path
+export GOPATH=$DEVPATH
+export PATH=$GOPATH/bin:$PATH
+
+# Locate Atom
+export ATOM_PATH=~/Applications
 
 # The iTriage Gem Host
 export ITRIAGE_GEM_HOST=https://developer:09763a8cd60c4621c633d6f7d275eadd74a7967343a780eddaf8897478452dbf@developers.itriagehealth.com/gems/
@@ -71,20 +81,20 @@ fi
 
 # A function to set the docker host
 function set-docker-host () {
-  
+
   if [ $1 ]
   then
   export DOCKER_HOST=$1
-  
+
   elif [ -e ".docker_host" ]
   then
   export DOCKER_HOST=$(cat .docker_host)
-  
+
   else
-  echo "missing host argument" 
+  echo "missing host argument"
   return
 
   fi
-  
+
   print "docker host is now: $DOCKER_HOST"
 }
