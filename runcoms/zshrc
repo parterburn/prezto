@@ -63,11 +63,10 @@ export ATOM_PATH=~/Applications
 export ITRIAGE_GEM_HOST=https://developer:09763a8cd60c4621c633d6f7d275eadd74a7967343a780eddaf8897478452dbf@developers.itriagehealth.com/gems/
 
 ### RBENV SETUP
-if which rbenv > /dev/null
-  then
-  # export RBENV_ROOT=/usr/local/var/rbenv
+if which rbenv > /dev/null ; then
+  export RBENV_ROOT=/usr/local/var/rbenv
   eval "$(rbenv init -)"
-  else
+else
   echo "Warning, missing rbenv"
 fi
 
