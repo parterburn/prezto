@@ -70,6 +70,15 @@ else
   echo "Warning, missing rbenv"
 fi
 
+### Goop Env
+function goopinit(){
+  eval $(goop env)
+}
+
+### JENV SETUP
+export PATH="$HOME/.jenv/bin:$PATH"
+eval "$(jenv init -)"
+
 ### AUTOJUMP SETUP
 if which autojump > /dev/null
     then
