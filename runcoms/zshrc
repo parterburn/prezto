@@ -89,6 +89,11 @@ function goopinit(){
   eval $(goop env)
 }
 
+### Brew Bundle
+function brew-bundle(){
+  cat Brewfile | sed 's:#.*$::g' | sed '/^$/d' | /usr/bin/ruby -e "STDIN.each_line { |line| system 'brew ' + line.strip }"
+}
+
 ### AUTOJUMP SETUP
 if which autojump > /dev/null ; then
     [[ -s `brew --prefix`/etc/autojump.sh ]] && . `brew --prefix`/etc/autojump.sh
