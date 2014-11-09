@@ -10,14 +10,16 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
 
-# Customize to your needs...
-export EDITOR='atom -w'
+# Editors
+export EDITOR="atom -w"
+export VISUAL="atom -w"
 
 # Aliases
 alias zshconfig="e ~/.zshrc"
-alias git=hub
+if which hub > /dev/null ; then
+  alias git=hub
+fi
 alias g=git
-alias git-tower=gittower
 alias twr=gittower
 alias reload!="source ~/.zshrc"
 
@@ -35,6 +37,9 @@ export PATH="/usr/local/heroku/bin:$PATH"
 # PG App
 PATH="/Applications/Postgres.app/Contents/Versions/9.3/bin:$PATH"
 
+# Default Vagrant
+export VAGRANT_DEFAULT_PROVIDER=vmware_fusion
+
 ### Exports
 
 # Set the bundler editor
@@ -46,8 +51,17 @@ export ANDROID_HOME=/usr/local/opt/android-sdk
 # Set the default provider
 export VAGRANT_DEFAULT_PROVIDER=virtualbox
 
-# Set the docker host
-export DOCKER_HOST=tcp://docker.jasonwaldrip.com:4243
+# Set up boot2docker
+if which boot2docker > /dev/null ; then
+  if [ "$(boot2docker status)" != "running" ] ; then
+    echo "boot2docker is stopped, booting..."
+    boot2docker init
+    boot2docker start
+    boot2docker up
+  fi
+  # init the shell
+  $(boot2docker shellinit 2> /dev/null)
+fi
 
 # Set the Development PATH
 export DEVPATH=~/dev
@@ -75,34 +89,7 @@ function goopinit(){
   eval $(goop env)
 }
 
-### JENV SETUP
-export PATH="$HOME/.jenv/bin:$PATH"
-eval "$(jenv init -)"
-
 ### AUTOJUMP SETUP
-if which autojump > /dev/null
-    then
+if which autojump > /dev/null ; then
     [[ -s `brew --prefix`/etc/autojump.sh ]] && . `brew --prefix`/etc/autojump.sh
 fi
-
-### Functions
-
-# A function to set the docker host
-function set-docker-host () {
-
-  if [ $1 ]
-  then
-  export DOCKER_HOST=$1
-
-  elif [ -e ".docker_host" ]
-  then
-  export DOCKER_HOST=$(cat .docker_host)
-
-  else
-  echo "missing host argument"
-  return
-
-  fi
-
-  print "docker host is now: $DOCKER_HOST"
-}
