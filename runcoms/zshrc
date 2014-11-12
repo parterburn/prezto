@@ -54,11 +54,8 @@ export VAGRANT_DEFAULT_PROVIDER=virtualbox
 # Set up boot2docker
 if which boot2docker > /dev/null ; then
   if [ "$(boot2docker status)" != "running" ] ; then
-    echo "boot2docker is stopped, booting..."
-    rm -f .ssh/id_boot2docker
-    rm -f .ssh/id_boot2docker.pub
+    rm -f ~/.ssh/id_boot2docker ~/.ssh/id_boot2docker.pub
     boot2docker init
-    boot2docker start
     boot2docker up
   fi
   # init the shell
